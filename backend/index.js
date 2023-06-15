@@ -3,15 +3,17 @@ const { connection } = require("./db");
 const { userRouter } = require("./routes/user.routes");
 const { productRouter } = require("./routes/product.routes");
 const { cartRouter } = require("./routes/cart.routes");
-// const cors = require("cors");
+const { wishlistRouter } = require("./routes/wishlist.routes");
+const cors = require("cors");
 require("dotenv").config();
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 
 app.use(express.json());
 app.use("/users", userRouter);
 app.use("/carts", cartRouter);
+app.use("/wishlists", wishlistRouter);
 app.use("/products", productRouter);
 
 app.listen(process.env.port, async () => {
