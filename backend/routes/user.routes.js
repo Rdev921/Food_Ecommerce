@@ -50,7 +50,7 @@ userRouter.post("/login", async (req, res) => {
             { userID: user._id, user: user.name },
             process.env.secret
           );
-          res.json({ msg: "Login Successfull", token });
+          res.json({ msg: "Login Successfull", token   });
         } else {
           res.json({ msg: "Wrong Cridentials" });
         }
