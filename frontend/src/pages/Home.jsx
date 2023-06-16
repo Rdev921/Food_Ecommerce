@@ -23,7 +23,7 @@ const Home = () => {
 		dots: false,
 		infinite: true,
 		speed: 3000,
-		slidesToShow: 5,
+		slidesToShow: 6,
 		slidesToScroll: 2,
 	};
 	return (
@@ -115,7 +115,7 @@ const Home = () => {
 			</Flex>
 			{/* Middle Section  */}
 
-			<Box background={'white'} textAlign={'center'} mt={'80px'} h={'80vh'}>
+			<Box background={'white'} textAlign={'center'} mt={'80px'} h={'90vh'}>
 				<Center gap={'7px'}>
 					<span>
 						<h3 style={{ fontFamily: 'Jost' }}>New to</h3>
@@ -125,7 +125,7 @@ const Home = () => {
 					</Text>
 				</Center>
 				<p>Our newest additions that we can't stop talking about</p>
-				<Box mt={'100px'} h={'60vh'}>
+				<Box mt={'100px'} h={'500px'}>
 					<Grid templateColumns='repeat(3, 1fr)' gap={6}>
 						<GridItem>
 							<Box m={'auto '} width={'350px'}>
@@ -181,7 +181,7 @@ const Home = () => {
 			<Box textAlign={'center'} mt={'50px'}>
 				<h2 style={{ fontFamily: 'Jost' }}>🛒Shop By Category</h2>
 			</Box>
-			<Box pt={'100px'} h={'50vh'} w={'95%'} m={'auto'}>
+			<Box pt={'80px'} h={'300px'} w={'95%'} m={'auto'}>
 				<Slider {...settings}>
 					<div className='shopbydiv'>
 						<Center borderRadius={'full'}>
@@ -262,8 +262,8 @@ const Home = () => {
 					</div>
 				</Slider>
 			</Box>
-			<Contact />
-			<Box h={'70vh'} mt={'50px'}>
+
+			<Box h={'500px'}>
 				<Grid w={'100%'} templateColumns='repeat(2, 1fr)'>
 					<GridItem w={'100%'} h={'100%'}>
 						<Center>
@@ -295,6 +295,7 @@ const Home = () => {
 					</GridItem>
 				</Grid>
 			</Box>
+			<Contact />
 		</div>
 	);
 };
