@@ -1,15 +1,26 @@
 import React from 'react';
-// import Nav from '../components/Navbar';
-import { Box, Center, Flex, Image, Img, Stack, Text } from '@chakra-ui/react';
+
+import {
+	Box,
+	Center,
+	Flex,
+	Grid,
+	GridItem,
+	Image,
+	Img,
+	Spacer,
+	Stack,
+	Text,
+} from '@chakra-ui/react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Contact from '../components/contact';
-// import Filters from '../components/Productbar';
+import ReactPlayer from 'react-player';
 
 const Home = () => {
 	const settings = {
-		dots: true,
+		dots: false,
 		infinite: true,
 		speed: 3000,
 		slidesToShow: 5,
@@ -18,7 +29,7 @@ const Home = () => {
 	return (
 		<div className='home-main'>
 			<br />
-
+			{/* Top Section (Hero Section) */}
 			<Flex w={'95%'} m={'auto'}>
 				<Box mt={'50px'} width={'20%'}>
 					<Center>
@@ -66,7 +77,7 @@ const Home = () => {
 							Our 13 Essential Grilling Tools,
 							<br /> Accessories & Serving Platters
 						</h3>
-						{/* <hr /> */}
+
 						<Text>Meet the grills</Text>
 					</Box>
 				</Box>
@@ -102,8 +113,9 @@ const Home = () => {
 					</p>
 				</Box>
 			</Flex>
+			{/* Middle Section  */}
 
-			<Box textAlign={'center'} mt={'80px'} h={'100vh'}>
+			<Box background={'white'} textAlign={'center'} mt={'80px'} h={'80vh'}>
 				<Center gap={'7px'}>
 					<span>
 						<h3 style={{ fontFamily: 'Jost' }}>New to</h3>
@@ -113,11 +125,63 @@ const Home = () => {
 					</Text>
 				</Center>
 				<p>Our newest additions that we can't stop talking about</p>
+				<Box mt={'100px'} h={'60vh'}>
+					<Grid templateColumns='repeat(3, 1fr)' gap={6}>
+						<GridItem>
+							<Box m={'auto '} width={'350px'}>
+								<Image
+									boxSize='350px'
+									h={'250px'}
+									borderRadius={'10px'}
+									src='https://media.istockphoto.com/id/526920325/photo/kitchenware-on-wooden-shelves.jpg?s=612x612&w=0&k=20&c=SOlfj82zu_1DWAKpXdLRv0k0lTJS5cXJ0fkZ4Ym6XRU='
+									alt='Dan Abramov'
+								/>
+								<h5>GIFT COLLECTION</h5>
+
+								<Text pt={'10px'} className='paint-text'>
+									Newly Added
+								</Text>
+							</Box>
+						</GridItem>
+						<GridItem>
+							<Box m={'auto '} width={'350px'}>
+								<Image
+									boxSize='350px'
+									h={'250px'}
+									borderRadius={'10px'}
+									src='https://www.bsshomestore.com/wp-content/uploads/2022/01/Best-Kitchen-Appliance-Brands-in-India-1.jpg'
+									alt='Dan Abramov'
+								/>
+								<h5>APLIANCE COLLECTION</h5>
+								<Text pt={'10px'} className='paint-text'>
+									Newly Added
+								</Text>
+							</Box>
+						</GridItem>
+						<GridItem>
+							<Box m={'auto '} width={'350px'}>
+								<Image
+									boxSize='350px'
+									h={'250px'}
+									borderRadius={'10px'}
+									src='https://cdn.shopify.com/s/files/1/2690/0106/products/m21nsa05p2142_800x.png?v=1642226062'
+									alt='Dan Abramov'
+								/>
+
+								<h5>HOME COLLECTION</h5>
+								<Text pt={'10px'} className='paint-text'>
+									Newly Added
+								</Text>
+							</Box>
+						</GridItem>
+					</Grid>
+				</Box>
 			</Box>
-			<Box textAlign={'center'} mt={'80px'}>
+			{/* Second Middle Section */}
+			<Box textAlign={'center'} mt={'50px'}>
 				<h2 style={{ fontFamily: 'Jost' }}>🛒Shop By Category</h2>
 			</Box>
-			<Box pt={'50px'} h={'50vh'} w={'95%'} m={'auto'}>
+			<Box pt={'100px'} h={'50vh'} w={'95%'} m={'auto'}>
 				<Slider {...settings}>
 					<div className='shopbydiv'>
 						<Center borderRadius={'full'}>
@@ -199,6 +263,38 @@ const Home = () => {
 				</Slider>
 			</Box>
 			<Contact />
+			<Box h={'70vh'} mt={'50px'}>
+				<Grid w={'100%'} templateColumns='repeat(2, 1fr)'>
+					<GridItem w={'100%'} h={'100%'}>
+						<Center>
+							<h5>FEATURED VIDEO</h5>
+						</Center>
+						<Spacer h={'30px'} />
+						<Center>
+							<h1 className='feature-video'>
+								You Asked, We Tested:
+								<br /> Here Are Our 5 <br /> Favorite Spatulas
+							</h1>
+						</Center>
+						<Spacer h={'30px'} />
+						<Center>
+							<h5>
+								It turns out, a fish spatula is probably not the
+								<br /> only spatula you need.
+							</h5>
+						</Center>
+						<Spacer h={'20px'} />
+						<Center>
+							<button className='btn'>Read Mode</button>
+						</Center>
+					</GridItem>
+					<GridItem w={'100%'} h={'100%'}>
+						<Center>
+							<ReactPlayer url='https://www.youtube.com/watch?v=99ND_B5kMd4' />
+						</Center>
+					</GridItem>
+				</Grid>
+			</Box>
 		</div>
 	);
 };
