@@ -7,6 +7,8 @@ import Cart from './pages/Cart';
 import Products from './pages/Products';
 import SingleProduct from './pages/SingleProduct';
 import Error from './pages/Error';
+import Checkout from './component/Checkout';
+import Payment from './component/Payment';
 
 function App() {
 	return (
@@ -18,8 +20,10 @@ function App() {
 				<Route path='products' element={<Products />} />
 				<Route path='products/:id' element={<SingleProduct />} />
 				<Route path='*' element={<Error />} />
+				<Route path="/checkout" element={<Checkout/>}/>
+				<Route path="/payment" element={<Payment/>}/>
 			</Routes>
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }
