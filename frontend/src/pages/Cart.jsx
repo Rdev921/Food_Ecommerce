@@ -101,9 +101,6 @@ export default function Cart() {
           border={"none"}
           onClick={onOpen}
         >
-          <i
-            className="fa-solid fa-cart-shopping"
-          ></i>
         </Box>
       </div>
       <Drawer
