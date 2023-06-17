@@ -59,7 +59,7 @@ display: block;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
     /* border: 1px solid #cccccc; */
-    background-color: white;
+  
     
 }
 

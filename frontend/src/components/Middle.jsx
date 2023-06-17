@@ -13,6 +13,7 @@ import {
   MenuList, MenuItem, Heading, Wrap, WrapItem, Square, Stack,
 } from '@chakra-ui/react'
 import './Middle.css'
+import { color } from 'framer-motion'
 const Middle = () => {
   const [text, setText] = useState(true)
 
@@ -22,7 +23,7 @@ const Middle = () => {
   return (
     <>
       
-        <HStack gap='5' fontSize={"15px"}   p={"10px 15px"} background={"#57696d"} justifyContent={"center"}>
+        <HStack gap='5' fontSize={"15px"} mt={51.9}  p={"10px 15px"} pt={15} background={"#57696d"} justifyContent={"center"}>
           <Menu >
             <MenuButton className='dorp' >
              New Arrivals
@@ -80,11 +81,11 @@ const Middle = () => {
             <MenuButton className='dorp' >
              Appliances
             </MenuButton>
-            <MenuList border='none'   mt={10} pl={5}>
+            <MenuList border='none' marginLeft={"-100px"}  mt={10} >
             <Flex gap={5}>
                
 
-                <SimpleGrid columns={1}  padding={6}>
+                <SimpleGrid columns={1}  pl={4}>
                   <Text as='b' ml={5}  color={"#a18f7a"}> SHOP BY BRAND</Text>
                   <hr />
                  <MenuItem fontSize='sm' className='item' bg='none'>All Appliances</MenuItem>
@@ -113,7 +114,7 @@ const Middle = () => {
             <MenuButton className='dorp'>
              Kitchen
             </MenuButton>
-            <MenuList border='none' marginTop='20px' marginLeft='-300px'  >
+            <MenuList border='none' mt={39} marginLeft='-200px' pl={5} >
             <Flex gap={5}>
                 <SimpleGrid columns={1} spacing={1}>
                   <Text as='b' color={"#a18f7a"}>SHOP COOKWARE</Text>
@@ -146,8 +147,8 @@ const Middle = () => {
                   <hr /> */}
                   <Box boxSize='sm' >
                     <Image mt={3} ml={5} width={"300px"} src='https://images.food52.com/q8KwAf__si74VWuw3je_dCc2GEM=/2000x2000/a92fabf4-9836-4540-abc8-bb49470852a2--2022-0706_holiday-press-preview_frieling_double-walled-french-press_silo_mj-kroeger_copy_2-.jpg' />
-                  <Text mt={2}  color={"gray"} ml={4} fontWeight={700}>Frieling Double-Walled</Text>
-                  <Text mt={2}  color={"gray"} ml={4} fontWeight={700}>French Press</Text>
+                  <Text mt={2}  color={"gray"} ml={4} fontWeight={700} cursor={"pointer"}>Frieling Double-Walled</Text>
+                  <Text mt={2}  color={"gray"} ml={4} fontWeight={700} cursor={"pointer"}>French Press</Text>
                   </Box>
                 </SimpleGrid>
               </Flex>
@@ -239,7 +240,8 @@ const Middle = () => {
           </Menu>
 
         </HStack>
-        <Center bg='#CBD5E0' padding={"7px 0px"} fontSize={"14px"} fontWeight={500} color={"RGBA(0, 0, 0, 0.48)"} gap={2}>
+      <Box>
+        <Center bg='hsl(22, 31%, 88%)' padding={"7px 0px"} fontSize={"14px"} fontWeight={500} color={"RGBA(0, 0, 0, 0.48)"} gap={2}>
    Just dropped: 550+ New Arrivals 
 
    <Text fontWeight={700} fontSize={"14px"} color={"#444444"} as='u'>Shop Now | </Text>
@@ -249,8 +251,8 @@ const Middle = () => {
    
 
    <Text as='i' fontSize={"14px"} textDecoration={"underline"} >View Detials</Text>
-
 </Center>
+</Box>
         <br />
 
       </>

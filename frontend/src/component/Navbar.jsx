@@ -242,7 +242,7 @@ export default function Navbar() {
   };
 
   return (
-    <Box>
+    <Box position={"fixed"} top={0} width={"100%"} overflow={"hidden"}>
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -270,7 +270,7 @@ export default function Navbar() {
           <div class="wrapper">
             <div class="container">
 
-              <h1>FOODHUB</h1>
+              <h1 className='h1'>FOODHUB</h1>
             </div>
           </div>
 
