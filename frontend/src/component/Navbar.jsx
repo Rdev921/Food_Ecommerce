@@ -22,7 +22,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
- 
+  import "../components/Middle.css"
 
   export  const NAV_ITEMS = [
     {
@@ -263,15 +263,11 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              fontWeight={500}
-              fontSize={"30px"}
-              pl={5}
-              color={useColorModeValue('blue', 'white')}>
-              FOODHUB
-            </Text>
+          <div class="wrapper">
+  <div class="container">
+    <h1>FOODHUB</h1>
+  </div>
+</div>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />

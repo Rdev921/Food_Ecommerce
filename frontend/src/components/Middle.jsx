@@ -22,7 +22,7 @@ const Middle = () => {
   return (
     <>
       
-        <HStack gap='5' fontSize={"15px"}  mt={5} p={"10px 15px"} background={"#57696d"} justifyContent={"center"}>
+        <HStack gap='5' fontSize={"15px"}   p={"10px 15px"} background={"#57696d"} justifyContent={"center"}>
           <Menu >
             <MenuButton className='dorp' >
              New Arrivals
