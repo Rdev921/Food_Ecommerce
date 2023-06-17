@@ -1,0 +1,44 @@
+.dorp{
+    color: rgb(235, 232, 232);
+}
+
+.footer:hover{
+cursor: pointer;
+margin-top: 5px;
+}
+item{
+    font-family: "Gotham SSm A", sans-serif;
+}
+.footer{
+    margin-top: 5px;
+}
+.flower{
+    text-decoration: none;
+}
+.but1:hover{
+    border-bottom: 2px solid black; 
+    
+ }
+ .dorp:hover{
+     border-bottom: 1px solid rgb(255, 255, 255); 
+     color: white;
+     font-weight: 600;
+ }
+  .item:hover{
+  font-weight: 600;
+ } 
+
+ .but1:hover{
+    border-bottom: 2px solid black; 
+    
+ }
+
+
+
+ .sixFlowers:hover{
+    box-shadow: 0 0 2px 1px rgba(168, 174, 177, 0.5);
+    border-radius: 10px;
+ }
+
+ 
+ 
