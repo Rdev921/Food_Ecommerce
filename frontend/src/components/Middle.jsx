@@ -36,7 +36,7 @@ const Middle = () => {
              Cookware
             </MenuButton>
 
-            <MenuList border='none' marginTop='20px' marginLeft='-100px'  >
+            <MenuList border='none' marginTop='20px' mt={10} pl={5} marginLeft='-100px'  >
               <Flex gap={5}>
                 <SimpleGrid columns={1} spacing={1}>
                   <Text as='b' color={"#a18f7a"}>SHOP COOKWARE</Text>
@@ -74,17 +74,17 @@ const Middle = () => {
                 </SimpleGrid>
               </Flex>
             </MenuList>
-            {/* ******************************************3333333333333333333333333333333333333************************************ */}
           </Menu>
+            {/* ******************************************3333333333333333333333333333333333333************************************ */}
           <Menu>
             <MenuButton className='dorp' >
              Appliances
             </MenuButton>
-            <MenuList border='none' marginTop='20px' marginLeft='-100px'  >
+            <MenuList border='none'   mt={10} pl={5}>
             <Flex gap={5}>
                
 
-                <SimpleGrid columns={1} border={"1px solid red"} padding={6}>
+                <SimpleGrid columns={1}  padding={6}>
                   <Text as='b' ml={5}  color={"#a18f7a"}> SHOP BY BRAND</Text>
                   <hr />
                  <MenuItem fontSize='sm' className='item' bg='none'>All Appliances</MenuItem>
@@ -97,9 +97,9 @@ const Middle = () => {
                   <MenuItem fontSize='sm' className='item' bg='none'>Toasters & Toaster Ovens</MenuItem>
                 </SimpleGrid>
                
-                <SimpleGrid columns={1} border={"1px solid red"} ml={5} color={"#a18f7a"}>
+                <SimpleGrid columns={1}  ml={5} color={"#a18f7a"}>
                   <Box boxSize='sm' >
-                    <Image mt={3} width={"300px"} src='https://images.food52.com/9rthx-xfYG9nbAt71A7vX4wrFmU=/2000x2000/7b47abed-d6c5-4cb7-8fe2-530be8a5d45b--2020-1005_raisenne_electric-dough-riser_silo_ty-mecham.jpg' alt='Dan Abramov' />
+                    <Image mt={16} ml={5} width={"250px"} src='https://images.food52.com/9rthx-xfYG9nbAt71A7vX4wrFmU=/2000x2000/7b47abed-d6c5-4cb7-8fe2-530be8a5d45b--2020-1005_raisenne_electric-dough-riser_silo_ty-mecham.jpg' alt='Dan Abramov' />
                   <Text mt={2} color={"gray"}  fontWeight={700}>Raisenne Dough Riser</Text>
                   </Box>
                 </SimpleGrid>

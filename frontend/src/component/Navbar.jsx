@@ -82,6 +82,10 @@ import {
   
   export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
+ 
+
+  
+
     
   const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
@@ -238,7 +242,7 @@ import {
   };
   
     return (
-      <Box>
+      <Box border={"1px solid blue"} >
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -265,6 +269,7 @@ import {
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <div class="wrapper">
   <div class="container">
+   
     <h1>FOODHUB</h1>
   </div>
 </div>
