@@ -9,6 +9,7 @@ import SingleProduct from './pages/SingleProduct';
 import Error from './pages/Error';
 import Checkout from './component/Checkout';
 import Payment from './component/Payment';
+import Confirmation from './component/Confirmation';
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 				<Route path='*' element={<Error />} />
 				<Route path="/checkout" element={<Checkout/>}/>
 				<Route path="/payment" element={<Payment/>}/>
+				<Route path="/confirmation" element={<Confirmation/>}/>
 			</Routes>
 			{/* <Footer /> */}
 		</div>
