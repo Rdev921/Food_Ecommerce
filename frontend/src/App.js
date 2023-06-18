@@ -9,8 +9,7 @@ import SingleProducts from './pages/SingleProducts';
 import Error from './pages/Error';
 import Checkout from './component/Checkout';
 import Payment from './component/Payment';
-import Navbar from "./component/Navbar"
-import Middle from "./components/Middle"
+
 
 function App() {
 	return (
@@ -26,6 +25,7 @@ function App() {
 				<Route path='*' element={<Error />} />
 				<Route path="/checkout" element={<Checkout/>}/>
 				<Route path="/payment" element={<Payment/>}/>
+				<Route path="/confirmation" element={<Confirmation/>}/>
 			</Routes>
 			<Footer />
 		</div>
