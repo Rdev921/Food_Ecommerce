@@ -4,33 +4,44 @@ import { Text,Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import {  SkeletonCircle,Box, SkeletonText } from '@chakra-ui/react'
-
-const ProductCart = ({ offer,image,name,rating_count,price_cut,price,id }) => {
+import { AiFillStar } from "react-icons/ai";
+const ProductCart = ({ name,brand,image1,image2,image3,rating,category,price,mrp,description,instack,_id }) => {
   // const {isLoading} = useSelector((store)=> store.productReducer) 
  
+const offer = Math.floor(((mrp-price)/mrp)*100)
+
     return (
      
-    <Link to={`/products/${id}`}>
+    <Link to={`/products/${_id}`}>
             <DIV>
                 <div className='first'>
-                <h5 className="top-left">-{offer}%</h5>
-              <img src={image} alt="image" />  
+                <h5 className="top-left">{offer}%</h5>
+
+                
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZxUj3ju_SOxMIhO0TtM4HJrSTbdGNIEUMUuk3ratz8s223B0b_UzUub3z4dwcw8iDYjw" alt="image1" />  
                 </div>
             <div>
                <a href="#">{name}</a>    
             </div>
-            <div className='star'>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-sharp fa-solid fa-star"></i>
-            <i className="fa-solid fa-star-half-stroke"></i>
-            <p>{rating_count}</p>
-            </div>
-            <Flex className='price'>
-            <Text>From :</Text>
-            <Text as="del">₹ {price_cut}</Text>
+            <Box className='star' display={"flex"} justifyContent={"space-between"}>
+           <Flex>
+            <Text>Price :</Text>
+            <Text as="del">₹ {mrp}</Text>
             <Text as="b">₹ {price}</Text>
             </Flex>
+         
+
+            <Flex>
+          {Array(Math.floor(rating))
+            .fill()
+            .map((_, i) => (
+              <Text key={i}>
+                 <i className="fa-sharp fa-solid fa-star"></i>
+              </Text>
+            ))}
+     </Flex>
+            </Box>
+           
             <div className='freebie'>
 			<span>🎁 FREEBIE </span>	           
             </div>

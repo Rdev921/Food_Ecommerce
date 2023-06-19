@@ -5,7 +5,7 @@ import ProductCart from './ProductCart'
 import styled from 'styled-components'
 import { useLocation, useSearchParams } from 'react-router-dom'
 import { SkeletonCircle, Box, SkeletonText, Grid } from '@chakra-ui/react'
-const ProductList = ({ setLength }) => {
+const ProductList = () => {
   const dispatch = useDispatch()
   const [page, setPage] = useState(1)
   const [search, setSearch] = useSearchParams();
@@ -31,7 +31,6 @@ const ProductList = ({ setLength }) => {
 
   }, [location.search])
 
-  setLength(products.length)
 
   return (
 
