@@ -371,7 +371,7 @@ const Product = () => {
             </Accordion>
           </div>
           <div className="middleright">
-            <ProductList setLength={setLength} />
+            <ProductList/>
           </div>
         </div>
         <Cart updateData={updateData} />

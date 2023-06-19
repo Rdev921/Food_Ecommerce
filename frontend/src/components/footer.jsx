@@ -14,14 +14,14 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
 	return (
 		<FOOTER>
-			<div class='content'>
-				<div class='top'>
-					<div class='logo-details'>
+			<div className='content'>
+				<div className='top'>
+					<div className='logo-details'>
 						<FontAwesomeIcon icon={faSlack} />
-						<span class='logo-name'>FoodHub</span>
+						<span className='logo-name'>FoodHub</span>
 					</div>
 
-					<div class='media-icons'>
+					<div className='media-icons'>
 						<Link to='#'>
 							{' '}
 							<FontAwesomeIcon icon={faFacebook} />
@@ -46,9 +46,9 @@ const Footer = () => {
 				</div>
 				<hr />
 
-				<div class='link-boxes'>
-					<ul class='box'>
-						<li class='link-name'>COMPANY</li>
+				<div className='link-boxes'>
+					<ul className='box'>
+						<li className='link-name'>COMPANY</li>
 						<li>
 							<Link to='#'>About us</Link>
 						</li>
@@ -69,8 +69,8 @@ const Footer = () => {
 						</li>
 					</ul>
 
-					<ul class='box'>
-						<li class='link-name'>SERVICES</li>
+					<ul className='box'>
+						<li className='link-name'>SERVICES</li>
 						<li>
 							<Link to='#'>Events</Link>
 						</li>
@@ -85,8 +85,8 @@ const Footer = () => {
 						</li>
 					</ul>
 
-					<ul class='box'>
-						<li class='link-name'>GET HELP</li>
+					<ul className='box'>
+						<li className='link-name'>GET HELP</li>
 						<li>
 							<Link to='#'>Contact & FAQ</Link>
 						</li>
@@ -104,8 +104,8 @@ const Footer = () => {
 						</li>
 					</ul>
 
-					<ul class='box'>
-						<li class='link-name'>EXPLORE</li>
+					<ul className='box'>
+						<li className='link-name'>EXPLORE</li>
 						<li>
 							<Link to='#'>The Shop</Link>
 						</li>
@@ -123,8 +123,8 @@ const Footer = () => {
 						</li>
 					</ul>
 
-					<ul class='box input-box'>
-						<li class='link-name'>SUBSCRIBE</li>
+					<ul className='box input-box'>
+						<li className='link-name'>SUBSCRIBE</li>
 						<li>
 							<input type='text' placeholder='Enter your email' />
 						</li>
@@ -135,13 +135,13 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div class='bottom-details'>
-				<div class='bottom-text'>
-					<span class='copyright-text'>
+			<div className='bottom-details'>
+				<div className='bottom-text'>
+					<span className='copyright-text'>
 						Copyright & #915; June,2023 <Link to='#'>FoodHub.</Link>All rights
 						are reserved
 					</span>
-					<span class='policy-terms'>
+					<span className='policy-terms'>
 						<Link to='#'>Privacy Policy</Link>
 						<Link to='#'>Terms & Conditions</Link>
 					</span>

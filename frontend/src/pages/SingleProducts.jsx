@@ -13,6 +13,7 @@ import Cart from "./Cart";
 
 
 const SingleProducts = () => {
+
   const toast = useToast();
   const [count, setCount] = useState(1);
   const [weight, setWeight] = useState(1);
@@ -20,39 +21,49 @@ const SingleProducts = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((store) => store.productReducer.products);
-  localStorage.setItem("id", id);
-  let idnew = localStorage.getItem("id");
+  // localStorage.setItem("id", _id);
+  // let idnew = localStorage.getItem("id");
+
+const getProduct = () => {
+  axios.get(`http://localhost:4500/products/${id}`)
+  .then((res)=> setData(res.data.products))
+  .catch((err)=> console.log(err))
+}
+
+
   useEffect(() => {
-    const data = product.find((el) => el.id === +idnew);
-    setData(data);
-  }, []);
-  let finalPrice = data?.price * weight;
-  let saveprice = data?.price_cut - data?.price;
-  const handleCart = () => {
-    toast({
-      title: " Added To Cart ",
-      description: "Successfully Add To Cart",
-      status: "success",
-      position: "top",
-      duration: 5000,
-      isClosable: true,
-    });
-    let cartdata = {
-      ...data,
-      price: finalPrice,
-      quantity: count,
-      weight: weight,
-    };
-    axios.post("https://befit.onrender.com/cart", cartdata);
-  };
+   getProduct()
+  },[]);
+  // let finalPrice = data?.price * weight;
+  let saveprice = data?.mrp - data?.price;
+  // const handleCart = () => {
+  //   toast({
+  //     title: " Added To Cart ",
+  //     description: "Successfully Add To Cart",
+  //     status: "success",
+  //     position: "top",
+  //     duration: 5000,
+  //     isClosable: true,
+  //   });
+  //   let cartdata = {
+  //     ...data,
+  //     price: finalPrice,
+  //     quantity: count,
+  //     weight: weight,
+  //   };
+  //   axios.post("https://befit.onrender.com/cart", cartdata);
+  // };
+console.log(id);
+console.log(data);
+console.log(product);
   return (
     <div>
      
       <DIV>
         <div className="left">
           <div className="first">
-            <h5 className="top-left">-{data?.offer}%</h5>
-            <img src={data?.image} alt="" />
+            <h5 className="top-left">{data?.offer}%</h5>
+            <img src={data.image1} alt="" />
           </div>
           <div className="middle">
             <p className="fit">Be-Fit</p>
@@ -100,40 +111,24 @@ const SingleProducts = () => {
           </div>
         </div>
         <div className="right">
-          <div className="weightBox">
-            <span className="weight">Weight: {weight}kg</span>
-          </div>
-          <div className="buttom">
-            <button value={"1"} onClick={(e) => setWeight(e.target.value)}>
-              1kg
-            </button>
-            <button value={"2"} onClick={(e) => setWeight(e.target.value)}>
-              2kg
-            </button>
-            <button value={"3"} onClick={(e) => setWeight(e.target.value)}>
-              3kg
-            </button>
-          </div>
-          <br />
-          <hr />
-          <br />
+      
           <div className="mrp">
             <p>MRP : </p>
             <Text opacity={".5"} as="del" fontSize={"xl"}>
-              ₹ {data?.price_cut}
+              ₹ {data.mrp}
             </Text>
           </div>
           <div className="mrp">
-            <p>selling Price : </p>
-            <Text color={"red.600"} as={"b"} fontSize={"xl"}>
-              ₹{finalPrice}
+            <p>selling Price : </p> 
+           <Text color={"red.600"} as={"b"} fontSize={"xl"}>
+              ₹{data.price}
             </Text>
           </div>
           <div className="cutmrp">
             <p>You Save: </p>
             <Text color={"red.600"}>
               ₹{saveprice} ({data?.offer}%)
-            </Text>
+            </Text> 
           </div>
           <Text className="opacity">Inclusive of all taxes </Text>
           <br />
@@ -157,7 +152,9 @@ const SingleProducts = () => {
               </button>
             </div>
             <div className="main">
-              <button className="cartIconButton" onClick={handleCart}>
+              <button className="cartIconButton"
+              //  onClick={handleCart}
+               >
                 Add to Cart
               </button>
             </div>
@@ -173,20 +170,20 @@ const DIV = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-weight: 400;
   padding: 10px;
   justify-content: space-between;
  
   .left {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 70%;
     height: 60%;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 3px;
   }
   .middle {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -197,7 +194,7 @@ const DIV = styled.div`
     font-size: 20px;
   }
   .right {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 30%;
     padding: 10px;
     display: flex;
@@ -210,12 +207,12 @@ const DIV = styled.div`
   }
   .first {
     display: flex;
-    border: 1px solid gray; 
+    /* border: 1px solid gray;  */
     position: relative;
   }
   .first img {
-    width: 200%;
-    height: 400px;
+    max-width: 200px;
+    height: 200px;
   }
   .top-left {
     position: absolute;
