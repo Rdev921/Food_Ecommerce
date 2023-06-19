@@ -90,17 +90,21 @@ export default function Cart() {
   return (
     <div>
       <div className="cartbtn">
-        <Box
-          marginRight={"5px"}
+      <Box className="cartPosition"
+    
+          marginRight={"15px"}
           backgroundColor={"none"}
-          zIndex={"200"}
-          top={5}
-          right={0}
+          zIndex={999}
+          top={"18px"}
+       right={0}
           position={"fixed"}
           ref={btnRef}
-          border={"none"}
+           border={"none"}
           onClick={onOpen}
         >
+          <i id="shoppingCart"
+            className="fa-solid fa-cart-shopping"
+          ></i>
         </Box>
       </div>
       <Drawer
@@ -195,11 +199,11 @@ export default function Cart() {
 }
 
 const DIV = styled.div`
-  @media only screen and (min-width: 300px) and (max-width: 399px) {
+  /* @media only screen and (min-width: 300px) and (max-width: 399px) {
     .cartbtn {
       content-visibility: hidden;
     }
-  }
+  } */
 
   .contentdiv {
     /* border: 1px solid gray; */
@@ -240,7 +244,7 @@ const DIV = styled.div`
     border-radius: 4px;
   }
   .price {
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     padding-left: 20px;
   }
   .remove {
@@ -296,4 +300,5 @@ const DIV = styled.div`
   .check .checkout {
     padding: 7px 65px;
   }
+
 `;

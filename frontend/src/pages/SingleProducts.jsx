@@ -173,20 +173,20 @@ const DIV = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   font-weight: 400;
   padding: 10px;
   justify-content: space-between;
-  margin-top: 8%;
+ 
   .left {
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     width: 70%;
     height: 60%;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 3px;
   }
   .middle {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     text-align: start;
@@ -197,7 +197,7 @@ const DIV = styled.div`
     font-size: 20px;
   }
   .right {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     width: 30%;
     padding: 10px;
     display: flex;
@@ -210,7 +210,7 @@ const DIV = styled.div`
   }
   .first {
     display: flex;
-    /* border: 1px solid gray;  */
+    border: 1px solid gray; 
     position: relative;
   }
   .first img {
@@ -304,7 +304,7 @@ const DIV = styled.div`
     justify-content: space-around;
   }
   .count .countButton {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: #f3f1f1;

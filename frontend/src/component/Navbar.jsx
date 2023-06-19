@@ -8,6 +8,13 @@ import {
   Grid,
   Collapse,
   Icon,
+  MenuButton,
+  Menu,
+  MenuList,
+  Avatar,
+  Center,
+  MenuDivider,
+  MenuItem,
   Link,
   Popover,
   PopoverTrigger,
@@ -23,6 +30,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import "../components/Middle.css"
+import { styled } from 'styled-components';
 
 export const NAV_ITEMS = [
   {
@@ -99,6 +107,7 @@ export default function Navbar() {
             <Popover trigger={'hover'} placement={'bottom-start'}>
               <PopoverTrigger>
                 <Link
+                className='underline'
                   p={2}
                   href={navItem.href ?? '#'}
                   fontSize={'sm'}
@@ -118,7 +127,6 @@ export default function Navbar() {
                 <PopoverContent
                   top={1.4}
                   width={"100%"}
-                  border={"1px solid red"}
                   left={-10}
                   boxShadow={'sm'}
                   bg={popoverContentBgColor}
@@ -242,7 +250,7 @@ export default function Navbar() {
   };
 
   return (
-    <Box position={"fixed"} top={0} width={"100%"} overflow={"hidden"}>
+    <Box className='navBar'>
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -267,12 +275,15 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <div class="wrapper">
-            <div class="container">
-
-              <h1 className='h1'>FOODHUB</h1>
-            </div>
-          </div>
+          <Box className="wrapper">
+            <Box className="container">
+            <Text className='h1'
+            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+          >
+           FOODHUB
+          </Text>
+            </Box>
+          </Box>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
@@ -284,13 +295,36 @@ export default function Navbar() {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
+{/* *********************** */}
+<Menu>
+  <Flex alignItems={"center"} justifyContent={"center"} >
+    <Text padding={0} m={0}>UserName</Text>
+  </Flex>
+                <MenuButton
+                  as={Button}
+                  rounded={'full'}
+                  variant={'link'}
+                  cursor={'pointer'}
+                  minW={0}>
+                  <Avatar
+                    size={'sm'}
+                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                  />
+                </MenuButton>
+               
+              </Menu>
+
+{/* *************************** */}
+
           <Button
             as={'a'}
+            display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'lg'}
             fontWeight={400}
             variant={'link'}
             href={'#'}>
             Sign In
+          
           </Button>
           <Button
             as={'a'}
@@ -298,17 +332,22 @@ export default function Navbar() {
             fontSize={'sm'}
             fontWeight={500}
             color={'white'}
-            bg={'blue.400'}
+            bg={'#795744'}
             href={'#'}
             _hover={{
-              bg: 'blue.300',
+              bg: '#806657',
             }}>
             Sign Up
           </Button>
+
+
+
           <i className="fa-solid fa-cart-shopping"
             style={{ marginTop: "12px", }}
             display={{ base: 'none', md: 'inline-flex' }}
+           
           ></i>
+
         </Stack>
       </Flex>
 

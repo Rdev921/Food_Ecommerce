@@ -23,7 +23,7 @@ const Middle = () => {
   return (
     <>
       
-        <HStack gap='5' fontSize={"15px"} mt={51.9}  p={"10px 15px"} pt={15} background={"#57696d"} justifyContent={"center"}>
+        <HStack gap='5' fontSize={"15px"}   p={"10px 15px"}  background={"#57696d"} justifyContent={"center"} className="hideContent">
           <Menu >
             <MenuButton className='dorp' >
              New Arrivals
@@ -42,7 +42,7 @@ const Middle = () => {
                 <SimpleGrid columns={1} spacing={1}>
                   <Text as='b' color={"#a18f7a"}>SHOP COOKWARE</Text>
                   <hr />
-                  <MenuItem fontSize='sm' className='item' bg='none'>All Cookware</MenuItem>
+                  <MenuItem fontSize='sm' className='un' bg='none'>All Cookware</MenuItem>
                   <MenuItem fontSize='sm' className='item' bg='none'>Baking & Roasting Pans</MenuItem>
                   <MenuItem fontSize='sm' className='item' bg='none'>Cookware sets</MenuItem>
                   <MenuItem fontSize='sm' className='item' bg='none'>Dutch Ovens & Stock Pots</MenuItem>
@@ -240,7 +240,8 @@ const Middle = () => {
           </Menu>
 
         </HStack>
-      <Box>
+
+      <Box className="hideContent">
         <Center bg='hsl(22, 31%, 88%)' padding={"7px 0px"} fontSize={"14px"} fontWeight={500} color={"RGBA(0, 0, 0, 0.48)"} gap={2}>
    Just dropped: 550+ New Arrivals 
 

@@ -35,9 +35,11 @@ const Product = () => {
   const [search, setSearch] = useSearchParams();
   const initcategory = search.getAll("category");
   const initbrand = search.getAll("brand");
+  const initprice = search.getAll("pricef");
   const initialOrder = search.get("order");
   const [category, setCategory] = useState(initcategory || []);
   const [brand, setBrand] = useState(initbrand || []);
+  const [pricef, setPrice] = useState(initprice || []);
   const [order, setOrder] = useState(initialOrder || "");
   const [length, setLength] = useState(0);
   const [update, setUpdate] = useState(false);
@@ -53,6 +55,20 @@ const Product = () => {
     }
     setCategory(newCategory);
   };
+  const handleChange1 = (e) => {
+    let newCategory = [...pricef];
+    let value = e.target.value;
+
+    if (newCategory.includes(value)) {
+      newCategory = newCategory.filter((el) => el !== value);
+    } else {
+      newCategory.push(value);
+    }
+    setPrice(newCategory);
+  };
+
+
+
   const handleBrand = (e) => {
     let newBrand = [...brand];
     let value = e.target.value;
@@ -72,10 +88,11 @@ const Product = () => {
     let params = {
       category,
       brand,
+      pricef
     };
     order && (params.order = order);
     setSearch(params);
-  }, [category, brand, update, order]);
+  }, [category, brand,pricef,update, order]);
 
   const updateData = () => {
     setUpdate((prev) => !prev);
@@ -86,9 +103,9 @@ const Product = () => {
       <div className="outer">
         <div className="product">
           <div className="left">
-            <Text opacity={"0.5"}>Supplement Store /</Text>
-            <Text opacity={"0.5"}>Sports Nutrition /</Text>
-            <Text as={"b"}>Protein Powders</Text>
+            <Text _hover={{opacity:1}} opacity={"0.5"}>Foodhub Store /</Text>
+            <Text _hover={{opacity:1}} opacity={"0.5"}>Cookware /</Text>
+            {/* <Text as={"b"}>Protein Powders</Text> */}
           </div>
           <div className="right">
             <div>
@@ -112,7 +129,7 @@ const Product = () => {
           <div className="middleleft">
             <div className="hide">
               <Text className="m" fontSize="xl" as={"b"}>
-                Protein Powders
+                COOKWARE
               </Text>
               <img
                 className="image"
@@ -121,18 +138,9 @@ const Product = () => {
               />
             </div>
             <div className="PREFERENCE">
-              <Text className="m" fontSize="xl" as={"b"}>
-                PREFERENCE
+              <Text className="m" fontSize="xl" as={"b"} fontFamily={"revert-layer"}>
+               New Arrivals
               </Text>
-            </div>
-
-            <div className="preference">
-              <div>
-                <Checkbox>Vegetarian (223)</Checkbox>
-              </div>
-              <div>
-                <Checkbox>Non-Vegetarian (3)</Checkbox>
-              </div>
             </div>
 
             <div className="CATEGORY">
@@ -160,16 +168,17 @@ const Product = () => {
                     <AccordionPanel pb={4}>
                       <div className="subCategory">
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Whey Protein Powder"}
                             onChange={handleChange}
                             checked={category.includes("Whey Protein Powder")}
+                          
                           />
-                          <label>Whey Protein Powder</label>
+                          <label>Table</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Whey Protein Concentrate"}
                             onChange={handleChange}
@@ -177,34 +186,34 @@ const Product = () => {
                               "Whey Protein Concentrate"
                             )}
                           />
-                          <label>Whey Protein Concentrate</label>
+                          <label>Kitchen</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Whey Protein Isolate"}
                             onChange={handleChange}
                             checked={category.includes("Whey Protein Isolate")}
                           />
-                          <label>Whey Protein Isolate</label>
+                          <label>Pantry</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Casein Protein"}
                             onChange={handleChange}
                             checked={category.includes("Casein Protein")}
                           />
-                          <label>Casein Protein</label>
+                          <label>Cookware</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Vegan/Plant Protein"}
                             onChange={handleChange}
                             checked={category.includes("Vegan/Plant Protein")}
                           />
-                          <label>Vegan/Plant Protein</label>
+                          <label>Dansk</label>
                         </div>
                       </div>
                     </AccordionPanel>
@@ -217,420 +226,7 @@ const Product = () => {
               <Text fontSize="xl" as={"b"}>
                 BRAND
               </Text>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
-
             <Accordion className="accordion" allowMultiple width={"250px"}>
               <AccordionItem>
                 {({ isExpanded }) => (
@@ -650,61 +246,61 @@ const Product = () => {
                     <AccordionPanel pb={4}>
                       <div className="brand">
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Fast&Up"}
                             onChange={handleBrand}
                             checked={brand.includes("Fast&Up")}
                           />
-                          <label>Fast&Up</label>
+                          <label>Costa Nova</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Nutrabay"}
                             onChange={handleBrand}
                             checked={brand.includes("Nutrabay")}
                           />
-                          <label>Nutrabay</label>
+                          <label>Match</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Optimum Nutrition"}
                             onChange={handleBrand}
                             checked={brand.includes("Optimum Nutrition")}
                           />
-                          <label>Optimum Nutrition</label>
+                          <label>Crow Cayon Home</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"MuscleTech"}
                             onChange={handleBrand}
                             checked={brand.includes("MuscleTech")}
                           />
-                          <label>MuscleTech</label>
+                          <label>Beatriz Ball</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Bigmuscles Nutrition"}
                             onChange={handleBrand}
                             checked={brand.includes("Bigmuscles Nutrition")}
                           />
-                          <label>Bigmuscles Nutrition</label>
+                          <label>Aarke</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"AS-IT-IS"}
                             onChange={handleBrand}
                             checked={brand.includes("AS-IT-IS")}
                           />
-                          <label>AS-IT-IS</label>
+                          <label>Bordallo Pinheiro (13)</label>
                         </div>
                         <div>
-                          <input
+                          <input style={{marginRight:"5px"}}
                             type="checkbox"
                             value={"Healthfarm"}
                             onChange={handleBrand}
@@ -730,7 +326,7 @@ const Product = () => {
                     <h2>
                       <AccordionButton>
                         <Box as="span" flex="1" textAlign="left">
-                          Filter By Flavour
+                          Filter By Price
                         </Box>
                         {isExpanded ? (
                           <MinusIcon fontSize="12px" />
@@ -742,29 +338,29 @@ const Product = () => {
                     <AccordionPanel pb={4}>
                       <div className="flavour">
                         <div>
-                          <Checkbox value={"Chocolate"} onChange={handleChange}>
-                            Chocolate
+                          <Checkbox value={"Under_$25"} onChange={handleChange1}>
+                            Under $25
                           </Checkbox>
                         </div>
                         <div>
                           <Checkbox
-                            value={"Cookies & Cream"}
-                            onChange={handleChange}
+                            value={"$25-$50"}
+                            onChange={handleChange1}
                           >
-                            Cookies & Cream
+                           $25-$50
                           </Checkbox>
                         </div>
                         <div>
-                          <Checkbox value={"Vanilla"} onChange={handleChange}>
-                            Vanilla
+                          <Checkbox value={"$50-$100"} onChange={handleChange1}>
+                          $50-$100
                           </Checkbox>
                         </div>
                         <div>
                           <Checkbox
-                            value={"strawberry"}
-                            onChange={handleChange}
+                            value={"$100-$200"}
+                            onChange={handleChange1}
                           >
-                            strawberry
+                            $100-$200
                           </Checkbox>
                         </div>
                       </div>
