@@ -2,7 +2,17 @@
 import {styled} from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowAltCircleRight} from '@fortawesome/free-regular-svg-icons';
-const checkout = () => {
+import { useNavigate } from "react-router-dom";
+const Checkout = () => {
+
+  const navigate=useNavigate();
+
+
+const handleClick=()=>{
+  navigate("/payment")
+}
+
+
   return (
     <DIV>
      
@@ -78,7 +88,7 @@ const checkout = () => {
         </div>
 
         <div class="button">
-          <input type="submit" value="Proceed to Payment" />
+          <input type="submit" onClick={handleClick} value="Proceed to Payment" />
          
         </div>
 
@@ -90,7 +100,7 @@ const checkout = () => {
   )
 }
 
-export default checkout;
+export default Checkout;
 
 
 const DIV=styled.div`
