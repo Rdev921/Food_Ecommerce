@@ -1,6 +1,4 @@
 
-
-
 .dorp{
     color: rgb(235, 232, 232);
 }
@@ -9,9 +7,10 @@
 cursor: pointer;
 margin-top: 5px;
 }
-item{
+/* .item{
     font-family: "Gotham SSm A", sans-serif;
-}
+
+} */
 .footer{
     margin-top: 5px;
 }
@@ -27,8 +26,13 @@ item{
      color: white;
      font-weight: 600;
  }
+ .item{
+  display: inline-block;
+  position: relative;
+ }
   .item:hover{
   font-weight: 600;
+
  } 
 
  .but1:hover{
@@ -107,4 +111,29 @@ item{
       radial-gradient(circle at 94.5% 97.5%,var(--color-3) .5% ,transparent .5% ), 
       radial-gradient(circle at 98.5% 95.5%,var(--color-4) .25%,transparent .25% );
   }
+
+  @media only screen and (min-width: 601px) and (max-width: 800px) {
+    .hideContent{
+      content-visibility: hidden;
+     }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+  .hideContent{
+   visibility: hidden;
+   }
+           
+}
+
+@media only screen and (min-width: 300px) and (max-width: 399px){
+ 
+ .hideContent{
+  visibility: hidden;
+ }
+        
+            
+              
+}
+
+
   

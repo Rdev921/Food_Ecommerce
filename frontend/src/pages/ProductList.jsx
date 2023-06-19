@@ -18,6 +18,7 @@ const ProductList = ({ setLength }) => {
     params: {
       category: search.getAll("category"),
       brand: search.getAll("brand"),
+      price: search.getAll("pricef"),
       _sort: search.get("order") && "price",
       _order: search.get("order"),
 
