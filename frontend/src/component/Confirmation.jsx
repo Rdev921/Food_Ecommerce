@@ -131,7 +131,7 @@ const DIV=styled.div`
 .thanks{
    
     position:absolute;
-    top:45%;
+    top:30%;
     left:50%;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -143,13 +143,14 @@ const DIV=styled.div`
 
 .thanks img{
     width:50px;
-    margin-top: -50px;
+    margin-top: -10px;
+    margin-left:41%;
     border-radius:50px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 
 }
 
-.thanks h2{
+.thanks h4{
     font-size:25px;
     font-weight: 500;
     margin:30px 0 10px;

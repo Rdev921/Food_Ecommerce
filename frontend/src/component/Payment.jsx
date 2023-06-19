@@ -1,10 +1,22 @@
 
 import {styled} from "styled-components"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import mcLogo from "./images/mc.png";
 import vcLogo from "./images/vi.png";
-import pcLogo from "./images/pp.png"
+import pcLogo from "./images/pp.png";
+import { useState } from "react";
+
+
 const Payment = () => {
+const navigate=useNavigate();
+const [name,setName]=useState("");
+const [cvv,setCvv]=useState("");
+const [card,setCard]=useState("");
+const [month,setMonth]=useState("");
+const [year,setYear]=useState("");
+
+
+
   return (
     <DIV>
        <div class="container">
@@ -15,13 +27,11 @@ const Payment = () => {
                   <p>1</p>
                 </div>
             </li>
-
             <li class="active form-2-progressbar">
                 <div>
                 <p>2</p>
                 </div>
             </li>
-
             <li class="form-3-progressbar">
                 <div>
                 <p>3</p>
@@ -34,13 +44,13 @@ const Payment = () => {
             <div class="owner">
             <span class="details">Name of the card holder <span class="star">*</span></span>
                 <div class="input-field">
-                    <input type="text" />
+                    <input type="text" value={name} onChange={(e)=>setName(e.target.value)} />
                 </div>
             </div>
             <div class="cvv">
             <span class="details">CVV<span class="star">*</span></span>
                 <div class="input-field">
-                    <input type="password" />
+                    <input type="password" value={cvv} onChange={(e)=>setCvv(e.target.value)}/>
                 </div>
             </div>
         </div>
@@ -48,7 +58,7 @@ const Payment = () => {
             <div class="card-number">
             <span class="details">Card Number <span class="star">*</span></span>
                 <div class="input-field">
-                    <input type="text" />
+                    <input type="text" value={card} onChange={(e)=>setCard(e.target.value)}/>
                 </div>
             </div>
         </div>
@@ -56,7 +66,7 @@ const Payment = () => {
         <span class="details">Expiry Date <span class="star">*</span></span>
             <div class="selection">
                 <div class="date">
-                    <select name="months" id="months">
+                    <select name="months" id="months" value={month} onChange={(e)=>setMonth(e.target.value)}>
                         <option value="Jan">Jan</option>
                         <option value="Feb">Feb</option>
                         <option value="Mar">Mar</option>
@@ -70,7 +80,7 @@ const Payment = () => {
                         <option value="Nov">Nov</option>
                         <option value="Dec">Dec</option>
                       </select>
-                      <select name="years" id="years">
+                      <select name="years" id="years" value={year} onChange={(e)=>setMonth(e.target.value)}>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
@@ -88,7 +98,7 @@ const Payment = () => {
                 </div>
             </div>    
         </div>
-        <Link to="#">Confirm</Link>
+        <Link to="/confirmation" >Confirm</Link>
     </div> 
     </DIV>
   )
@@ -108,7 +118,7 @@ const DIV=styled.div`
     .header{
     margin-bottom:25px;
     display:flex;
-    justify-content: center;
+    justify-content: center;  
 }
 
 .header ul{
@@ -232,8 +242,9 @@ const DIV=styled.div`
 }
 
 .selection select{
-    padding: 7px 20px;
-    margin-right: 15px;
+    margin-right: 10px;
+    font-weight: bold;
+    width:70px;
 }
 
 a{
@@ -251,24 +262,32 @@ a{
 a:hover{
     background-color: dodgerblue;
 }
+.cards{
+    display: flex;
 
+}
 .cards img{
-    width: 50px;
+    width: 60px;
     margin-right:7px;
 }
 
 
 .details{
-    display: block;
-  font-weight: 400;
+   display: block;
+  font-weight: 500;
   margin-bottom: 5px;
   font-size:16px;
+  display: flex;
+  justify-content: start;
+  margin-left:5px;
 }
 
 .star{
     color:rgb(244, 81, 30);
     font-size:16px;
-    margin-left:1px;
+    margin-left:3px;
   }
+
+
 
 `
