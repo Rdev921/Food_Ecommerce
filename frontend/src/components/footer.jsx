@@ -389,7 +389,7 @@ const FOOTER = styled.footer`
 			font-size: 12px;
 		}
 
-		@media (max-width: 500px) {
+		@media (max-width: 300px) {
 			::before {
 				top: 145px;
 			}

@@ -15,7 +15,9 @@ const [card,setCard]=useState("");
 const [month,setMonth]=useState("");
 const [year,setYear]=useState("");
 
-
+const handleClick=()=>{
+   navigate("/confirmation")
+}
 
   return (
     <DIV>
@@ -98,7 +100,7 @@ const [year,setYear]=useState("");
                 </div>
             </div>    
         </div>
-        <Link to="/confirmation" >Confirm</Link>
+        <button type="submit" onClick={handleClick}>Confirm</button>
     </div> 
     </DIV>
   )
@@ -113,7 +115,7 @@ const DIV=styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: linear-gradient(135deg, #EDE7F6, #FBE9E7);
 
     .header{
     margin-bottom:25px;
@@ -247,7 +249,7 @@ const DIV=styled.div`
     width:70px;
 }
 
-a{
+button{
     background-color: rgb(92, 107, 192);
     color: white;
     text-align: center;
@@ -259,7 +261,7 @@ a{
     margin-top:20px;
 }
 
-a:hover{
+button:hover{
     background-color: dodgerblue;
 }
 .cards{

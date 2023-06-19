@@ -53,8 +53,8 @@ const DIV=styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
-
+    background: linear-gradient(135deg, #EDE7F6, #FBE9E7);
+    
 .header{
     margin-bottom:25px;
     display:flex;
@@ -131,7 +131,7 @@ const DIV=styled.div`
 .thanks{
    
     position:absolute;
-    top:30%;
+    top:38%;
     left:50%;
     transform: translate(-50%,-50%);
     text-align: center;

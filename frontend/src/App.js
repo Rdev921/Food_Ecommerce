@@ -18,8 +18,8 @@ import Confirmation from './component/Confirmation';
 function App() {
 	return (
 		<div>
-			{/* <Navbar />
-			<Middle /> */}
+			<Navbar />
+			<Middle />
 			<Routes>
 				<Route path='/' exact element={<Home />} />
 				<Route path='about' element={<About />} />

@@ -111,7 +111,7 @@ const DIV=styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(135deg, #EDE7F6, #FBE9E7);
 
   .header{
     margin-bottom:35px;
@@ -213,9 +213,12 @@ form .user-details .input-box{
   width: calc(100% / 2 - 20px);
 }
 form .input-box span.details{
-  display: block;
+  display: flex;
+  justify-content: flex-start;
   font-weight: 500;
   margin-bottom: 5px;
+  margin-left: 5px;
+
 }
 .user-details .input-box input{
   height: 45px;
