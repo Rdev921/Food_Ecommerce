@@ -7,9 +7,10 @@ const productRouter = express.Router();
 // to fetch all products from the data base
 // this route is kept public so we can see all products without login
 productRouter.get("/", async (req, res) => {
+
   try {
-    const products = await ProductModel.find(req.query);
-    res.json({ msg: "All products Available", products });
+    const products = await ProductModel.find(req.body);
+    res.json({ msg: "All Products", products });
   } catch (error) {
     res.json({ err: error.message });
   }
