@@ -185,16 +185,6 @@ const DIV=styled.div`
   margin-bottom: 20px;
 }
 
-/* .container .title::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 30px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
-} */
 
 .first-row{
      display: flex;
