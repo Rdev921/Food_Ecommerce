@@ -170,20 +170,20 @@ const Product = () => {
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Whey Protein Powder"}
+                            value={"new_arrivals"}
                             onChange={handleChange}
-                            checked={category.includes("Whey Protein Powder")}
+                            checked={category.includes("new_arrivals")}
                           
                           />
-                          <label>Table</label>
+                          <label>New Arrivals</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Whey Protein Concentrate"}
+                            value={"kitchen"}
                             onChange={handleChange}
                             checked={category.includes(
-                              "Whey Protein Concentrate"
+                              "kitchen"
                             )}
                           />
                           <label>Kitchen</label>
@@ -191,29 +191,29 @@ const Product = () => {
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Whey Protein Isolate"}
+                            value={"table"}
                             onChange={handleChange}
-                            checked={category.includes("Whey Protein Isolate")}
+                            checked={category.includes("table")}
                           />
-                          <label>Pantry</label>
+                          <label>Table</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Casein Protein"}
+                            value={"Cookware"}
                             onChange={handleChange}
-                            checked={category.includes("Casein Protein")}
+                            checked={category.includes("Cookware")}
                           />
                           <label>Cookware</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Vegan/Plant Protein"}
+                            value={"Appliances"}
                             onChange={handleChange}
-                            checked={category.includes("Vegan/Plant Protein")}
+                            checked={category.includes("Appliances")}
                           />
-                          <label>Dansk</label>
+                          <label>Appliances</label>
                         </div>
                       </div>
                     </AccordionPanel>
@@ -248,38 +248,38 @@ const Product = () => {
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Fast&Up"}
+                            value={"Sabre"}
                             onChange={handleBrand}
-                            checked={brand.includes("Fast&Up")}
+                            checked={brand.includes("Sabre")}
                           />
-                          <label>Costa Nova</label>
+                          <label>Sabre</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Nutrabay"}
+                            value={"Guzzini"}
                             onChange={handleBrand}
-                            checked={brand.includes("Nutrabay")}
+                            checked={brand.includes("Guzzini")}
                           />
-                          <label>Match</label>
+                          <label>Guzzini</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"Optimum Nutrition"}
+                            value={"Staub"}
                             onChange={handleBrand}
-                            checked={brand.includes("Optimum Nutrition")}
+                            checked={brand.includes("Staub")}
                           />
-                          <label>Crow Cayon Home</label>
+                          <label>Staub</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}
                             type="checkbox"
-                            value={"MuscleTech"}
+                            value={"Food52"}
                             onChange={handleBrand}
-                            checked={brand.includes("MuscleTech")}
+                            checked={brand.includes("Food52")}
                           />
-                          <label>Beatriz Ball</label>
+                          <label>Food52</label>
                         </div>
                         <div>
                           <input style={{marginRight:"5px"}}

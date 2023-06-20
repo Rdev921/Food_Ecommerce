@@ -3,14 +3,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Text } from "@chakra-ui/react";
+import { Text,Flex,Box,useBreakpointValue } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 // import { cartProducts } from '../redux/productReducer/action'
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
-
-
+import ReactImageMagnify from "react-image-magnify";
+import { useNavigate } from "react-router-dom";
 
 const SingleProducts = () => {
 
@@ -21,61 +21,91 @@ const SingleProducts = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((store) => store.productReducer.products);
-  // localStorage.setItem("id", _id);
-  // let idnew = localStorage.getItem("id");
+  const navigate = useNavigate()
+  const getProduct = async() => {
+    
+    try {
+      const newdata =  await axios.get(`http://localhost:4500/products/${id}`)
+      // console.log(newdata.data.product)
+      setData(newdata.data.product)
 
-const getProduct = () => {
-  axios.get(`http://localhost:4500/products/${id}`)
-  .then((res)=> setData(res.data.products))
-  .catch((err)=> console.log(err))
+  } catch (err) {
+    console.log(err);
+  }
+  
+  
 }
 
+const breackToHideoverFlow = useBreakpointValue({
+  base: "hidden",
+  sm: "hidden",
+  md: "hidden",
+  lg: "",
+  xl: "",
+  xxl: "",
+});
 
-  useEffect(() => {
-   getProduct()
-  },[]);
-  // let finalPrice = data?.price * weight;
-  let saveprice = data?.mrp - data?.price;
-  // const handleCart = () => {
-  //   toast({
-  //     title: " Added To Cart ",
-  //     description: "Successfully Add To Cart",
-  //     status: "success",
-  //     position: "top",
-  //     duration: 5000,
-  //     isClosable: true,
-  //   });
-  //   let cartdata = {
-  //     ...data,
-  //     price: finalPrice,
-  //     quantity: count,
-  //     weight: weight,
-  //   };
-  //   axios.post("https://befit.onrender.com/cart", cartdata);
-  // };
-console.log(id);
-console.log(data);
-console.log(product);
-  return (
+
+useEffect(() => {
+  getProduct()
+},[]);
+
+const { name,brand,image1,image2,image3,rating,category,price,mrp,description,instack,_id } = data
+
+const handleCart = () => {
+    toast({
+        title: " Added To Cart ",
+        description: "Successfully Add To Cart",
+      status: "success",
+      position: "top",
+      duration: 5000,
+      isClosable: true,
+    });
+    let cartdata = {
+        email:"mukeshd4797@gmail.com",
+        name,brand,image1,image2,image3,rating,price,mrp,quantity:1
+      };
+      axios.post("http://localhost:4500/carts/create", cartdata);
+    };
+    const offer = Math.floor(((mrp-price)/mrp)*100)
+    return (
     <div>
      
       <DIV>
         <div className="left">
           <div className="first">
-            <h5 className="top-left">{data?.offer}%</h5>
-            <img src={data.image1} alt="" />
+            <h5 className="top-left">{offer}%</h5>
+            {/* <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZxUj3ju_SOxMIhO0TtM4HJrSTbdGNIEUMUuk3ratz8s223B0b_UzUub3z4dwcw8iDYjw"} alt="" /> */}
+            
+            <Box overflow={breackToHideoverFlow}>
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: "Wristwatch by Ted Baker London",
+                    isFluidWidth: true,
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZxUj3ju_SOxMIhO0TtM4HJrSTbdGNIEUMUuk3ratz8s223B0b_UzUub3z4dwcw8iDYjw",
+                  },
+                  largeImage: {
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZxUj3ju_SOxMIhO0TtM4HJrSTbdGNIEUMUuk3ratz8s223B0b_UzUub3z4dwcw8iDYjw",
+                    width: 700,
+                    height: 2000,
+                  },
+                }}
+              />
+            </Box>
           </div>
           <div className="middle">
-            <p className="fit">Be-Fit</p>
-            <p>{data?.name}</p>
-            <div className="star">
-              <i className="fa-sharp fa-solid fa-star"></i>
-              <i className="fa-sharp fa-solid fa-star"></i>
-              <i className="fa-sharp fa-solid fa-star"></i>
-              <i className="fa-sharp fa-solid fa-star"></i>
-              <i className="fa-solid fa-star-half-stroke"></i>
-              <span>{data?.rating_count} Reviews</span>
-            </div>
+            <p className="fit">FOODHUB</p>
+            <p>{name}</p>
+            <Flex>
+          {Array(Math.floor(4))
+            .fill()
+            .map((_, i) => (
+              <Text key={i}>
+                 <i className="fa-sharp fa-solid fa-star"></i>
+              </Text>
+            ))}
+     </Flex>
             <div className="dabba">
               <p>:gift: Free Nutrabay Shaker</p>
               <p>
@@ -91,23 +121,7 @@ console.log(product);
                 purchase. T&C
               </p>
             </div>
-            <div className="maingray">
-              <div className="gray">
-                <h6>:package: Sold & Fulfilled By</h6>
-                <p>Nutrabay.com - ✓ Brand Authorized</p>
-              </div>
-              <div className="gray">
-                <h6>:zap: Free & Fast Delivery</h6>
-                <p>Shipped within 1 day. Free shipping on orders above ₹350.</p>
-              </div>
-              <div className="gray">
-                <h6>:shield: Genuine Products</h6>
-                <p>
-                  All our products are far from expiry, and procured directly
-                  from the brand or authorized importers of the brand.
-                </p>
-              </div>
-            </div>
+           
           </div>
         </div>
         <div className="right">
@@ -115,24 +129,24 @@ console.log(product);
           <div className="mrp">
             <p>MRP : </p>
             <Text opacity={".5"} as="del" fontSize={"xl"}>
-              ₹ {data.mrp}
+              $ {mrp}
             </Text>
           </div>
           <div className="mrp">
             <p>selling Price : </p> 
            <Text color={"red.600"} as={"b"} fontSize={"xl"}>
-              ₹{data.price}
+              $ {price}
             </Text>
           </div>
           <div className="cutmrp">
             <p>You Save: </p>
             <Text color={"red.600"}>
-              ₹{saveprice} ({data?.offer}%)
+                {`$ ${mrp-price}.${offer}%`}
             </Text> 
           </div>
           <Text className="opacity">Inclusive of all taxes </Text>
           <br />
-          <Text className="stock">In Stock</Text>
+          <Text className="stock">{instack} left only</Text>
           <div className="add">
             <div className="count">
               <button
@@ -153,12 +167,23 @@ console.log(product);
             </div>
             <div className="main">
               <button className="cartIconButton"
-              //  onClick={handleCart}
+               onClick={handleCart}
                >
                 Add to Cart
               </button>
             </div>
           </div>
+
+
+          <div className="main">
+              <button className="cartIconButton" style={{marginLeft:"30px",backgroundColor:"black",color:"white", marginTop:"40px"}}
+              onClick={()=> navigate("/products")}
+               >
+                Continue Shooping
+              </button>
+            </div>
+
+
         </div>
       </DIV>
       <Cart />
@@ -181,14 +206,16 @@ const DIV = styled.div`
     height: 60%;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 3px;
+    justify-content:space-between;
   }
   .middle {
-    /* border: 1px solid black; */
+    /* border: 1px solid pink; */
     display: flex;
     flex-direction: column;
     text-align: start;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 3px;
+    width: 50%;
   }
   .fit {
     font-size: 20px;
@@ -207,22 +234,26 @@ const DIV = styled.div`
   }
   .first {
     display: flex;
-    /* border: 1px solid gray;  */
+    /* border: 1px solid red;  */
     position: relative;
+    width: 50%;
+    justify-content:center;
+    align-items:center
+
   }
-  .first img {
-    max-width: 200px;
-    height: 200px;
+  .first div{
+    width: 90%;
+    height: 90%;
   }
   .top-left {
     position: absolute;
-    top: 8px;
-    left: 0px;
+    top: 30px;
+    left: 30px;
     /* border: none; */
     border-radius: 60%;
     padding: 5px;
     color: #fff;
-    background-color: #515151;
+    background-color: #05cf31;
   }
   .fit {
     font-size: 23px;

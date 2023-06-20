@@ -22,11 +22,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const getData = async () => {
-  const res = await axios.get("https://befit.onrender.com/cart");
 
-  return res.data;
-};
 
 export default function Cart() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -34,23 +30,21 @@ export default function Cart() {
   const [data, setData] = useState([]);
   const [update, setUpdate] = useState(false);
 
-  const func = () => {
-    setUpdate((prev) => !prev);
+
+  const getData = async () => {
+    const res = await axios.get("http://localhost:4500/carts",{email:localStorage.getItem("usermail")});
+  console.log(res.data)
+  console.log(localStorage.getItem("usermail"));
+  setData(res.data.products);
   };
 
   useEffect(() => {
     getData()
-      .then((res) => {
-        setData(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }, [update]);
 
   const handleIncrement = (itemId) => {
-    const updatedItems = data.map((item) => {
-      if (item.id === itemId) {
+    const updatedItems = data?.map((item) => {
+      if (item._id === itemId) {
         return {
           ...item,
           quantity: item.quantity + 1,
@@ -62,8 +56,8 @@ export default function Cart() {
   };
 
   const handleDecrement = (itemId) => {
-    const updatedItems = data.map((item) => {
-      if (item.id === itemId && item.quantity > 1) {
+    const updatedItems = data?.map((item) => {
+      if (item._id === itemId && item.quantity > 1) {
         return {
           ...item,
           quantity: item.quantity - 1,
@@ -77,10 +71,10 @@ export default function Cart() {
   const handleDelete = async (id) => {
     console.log(id);
     try {
-      await axios.delete(`https://befit.onrender.com/cart/${id}`);
+      await axios.delete(`http://localhost:4500/carts/delete/${id}`);
       setUpdate((prev) => !prev);
     } catch (error) {
-      func();
+   setUpdate((prev)=> !prev)
     }
   };
   const totalPrice = data.reduce(
@@ -134,21 +128,26 @@ export default function Cart() {
 
                 {data?.map((el) => {
                   return (
-                    <div className="contentdiv" key={el.id}>
+                    <div className="contentdiv" key={el._id}>
                       <div className="firstBox">
-                        <img src={el.image} alt="" />
+                        <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZxUj3ju_SOxMIhO0TtM4HJrSTbdGNIEUMUuk3ratz8s223B0b_UzUub3z4dwcw8iDYjw"} alt="" />
                         <div className="name">
                           <div className="div">
                             <div className="b" fontSize="sm">
                               {el.name}
+                            
                             </div>
                           </div>
                           <div className="quantity">
-                            <button onClick={() => handleDecrement(el.id)}>
+                            <button 
+                            onClick={() => handleDecrement(el._id)}
+                            >
                               -
                             </button>
                             <button disabled>{el.quantity}</button>
-                            <button onClick={() => handleIncrement(el.id)}>
+                            <button
+                             onClick={() => handleIncrement(el._id)}
+                             >
                               +
                             </button>
                           </div>
@@ -159,7 +158,7 @@ export default function Cart() {
                           </Text>
                           <button
                             className="remove"
-                            onClick={() => handleDelete(el.id)}
+                            onClick={() => handleDelete(el._id)}
                           >
                             Remove
                           </button>
@@ -206,9 +205,11 @@ const DIV = styled.div`
   } */
 
   .contentdiv {
-    /* border: 1px solid gray; */
+    border-bottom: 1px solid gray;
+    padding-bottom:4px;
     align-items: center;
     margin-bottom: 10px;
+
   }
   .firstBox {
     display: flex;
@@ -228,6 +229,7 @@ const DIV = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     /* border: 1px solid #000000; */
+    margin-left:10px
   }
 
   .quantity {
@@ -237,6 +239,7 @@ const DIV = styled.div`
     height: 30px;
     margin-top: 20px;
     border-radius: 8px;
+    margin-left:10px
   }
   .quantity button {
     border: none;
@@ -244,7 +247,6 @@ const DIV = styled.div`
     border-radius: 4px;
   }
   .price {
-    border: 1px solid blue;
     padding-left: 20px;
   }
   .remove {

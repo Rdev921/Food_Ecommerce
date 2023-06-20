@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Text,Flex } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import {  SkeletonCircle,Box, SkeletonText } from '@chakra-ui/react'
+import {  SkeletonCircle,Box,SkeletonText } from '@chakra-ui/react'
 import { AiFillStar } from "react-icons/ai";
 const ProductCart = ({ name,brand,image1,image2,image3,rating,category,price,mrp,description,instack,_id }) => {
   // const {isLoading} = useSelector((store)=> store.productReducer) 
@@ -41,6 +41,13 @@ const offer = Math.floor(((mrp-price)/mrp)*100)
             ))}
      </Flex>
             </Box>
+
+            <Box textAlign={"justify"}>
+              <Text fontSize={"15px"} fontWeight={600}>brand : {brand}</Text>
+              <Text fontSize={"15px"} fontWeight={600}>category : {category}</Text>
+              
+              </Box>
+    
            
             <div className='freebie'>
 			<span>🎁 FREEBIE </span>	           
@@ -60,10 +67,10 @@ display: block;
 
   top: 0px;
   position: relative;
-  padding-left: 5px;
+  padding: 5px;
     padding-bottom: 5px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
- 
+
 :hover{
 
   transition: all 0.2s ease-out;
