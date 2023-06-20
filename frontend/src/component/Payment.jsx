@@ -7,55 +7,55 @@ import pcLogo from "./images/pp.png"
 const Payment = () => {
   return (
     <DIV>
-       <div class="container">
-       <div class="header">
+       <div className="container">
+       <div className="header">
         <ul>
-            <li class="active form-1-progressbar">
+            <li className="active form-1-progressbar">
                 <div>
                   <p>1</p>
                 </div>
             </li>
 
-            <li class="active form-2-progressbar">
+            <li className="active form-2-progressbar">
                 <div>
                 <p>2</p>
                 </div>
             </li>
 
-            <li class="form-3-progressbar">
+            <li className="form-3-progressbar">
                 <div>
                 <p>3</p>
                 </div>
             </li>
         </ul>
        </div>
-       <div class="title">Confirm your Payment</div>
-        <div class="first-row">
-            <div class="owner">
-            <span class="details">Name of the card holder <span class="star">*</span></span>
-                <div class="input-field">
+       <div className="title">Confirm your Payment</div>
+        <div className="first-row">
+            <div className="owner">
+            <span className="details">Name of the card holder <span className="star">*</span></span>
+                <div className="input-field">
                     <input type="text" />
                 </div>
             </div>
-            <div class="cvv">
-            <span class="details">CVV<span class="star">*</span></span>
-                <div class="input-field">
+            <div className="cvv">
+            <span className="details">CVV<span className="star">*</span></span>
+                <div className="input-field">
                     <input type="password" />
                 </div>
             </div>
         </div>
-        <div class="second-row">
-            <div class="card-number">
-            <span class="details">Card Number <span class="star">*</span></span>
-                <div class="input-field">
+        <div className="second-row">
+            <div className="card-number">
+            <span className="details">Card Number <span className="star">*</span></span>
+                <div className="input-field">
                     <input type="text" />
                 </div>
             </div>
         </div>
-        <div class="third-row">
-        <span class="details">Expiry Date <span class="star">*</span></span>
-            <div class="selection">
-                <div class="date">
+        <div className="third-row">
+        <span className="details">Expiry Date <span className="star">*</span></span>
+            <div className="selection">
+                <div className="date">
                     <select name="months" id="months">
                         <option value="Jan">Jan</option>
                         <option value="Feb">Feb</option>
@@ -81,14 +81,14 @@ const Payment = () => {
                         <option value="2030">2030</option>
                       </select>
                 </div>
-                <div class="cards">
+                <div className="cards">
                     <img src={vcLogo} alt="" />
                     <img src={mcLogo} alt="" />
                     <img src={pcLogo} alt="" />
                 </div>
             </div>    
         </div>
-        <Link to="#">Confirm</Link>
+        <Link to="/">Confirm</Link>
     </div> 
     </DIV>
   )

@@ -2,27 +2,34 @@
 import {styled} from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowAltCircleRight} from '@fortawesome/free-regular-svg-icons';
-const checkout = () => {
+import { useNavigate } from "react-router-dom";
+const Checkout = () => {
+const navigate = useNavigate()
+
+const goup = () => {
+navigate("/payment")
+}
+
   return (
     <DIV>
      
 
-    <div class="container">
-    <div class="header">
+    <div className="container">
+    <div className="header">
         <ul>
-            <li class="active form-1-progressbar">
+            <li className="active form-1-progressbar" >
                 <div>
                   <p>1</p>
                 </div>
             </li>
 
-            <li class="form-2-progressbar">
-                <div>
+            <li className="form-2-progressbar">
+                <div onClick={goup}>
                 <p>2</p>
                 </div>
             </li>
 
-            <li class="form-3-progressbar">
+            <li className="form-3-progressbar">
                 <div>
                 <p>3</p>
                 </div>
@@ -30,56 +37,55 @@ const checkout = () => {
         </ul>
        </div>
 
-    <div class="title">Address Details</div>
-    <div class="content">
-      <form action="#">
-        <div class="user-details">
+    <div className="title">Address Details</div>
+    <div className="content">
+      <form action="#" onSubmit={goup}>
+        <div className="user-details">
 
-          <div class="input-box">
-            <span class="details">Flat No./House Name <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">Flat No./House Name <span className="star">*</span></span>
             <input type="text" placeholder="Enter your name" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">Street Name <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">Street Name <span className="star">*</span></span>
             <input type="text" placeholder="Enter your username" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">Locality <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">Locality <span className="star">*</span></span>
             <input type="text" placeholder="Enter your email" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">City <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">City <span className="star">*</span></span>
             <input type="text" placeholder="Enter your number" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">District <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">District <span className="star">*</span></span>
             <input type="text" placeholder="Enter your password" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">State <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">State <span className="star">*</span></span>
             <input type="text" placeholder="Confirm your password" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">Mobile Number <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">Mobile Number <span className="star">*</span></span>
             <input type="text" placeholder="Confirm your password" required />
           </div>
 
-          <div class="input-box">
-            <span class="details">Pin Code <span class="star">*</span></span>
+          <div className="input-box">
+            <span className="details">Pin Code <span className="star">*</span></span>
             <input type="text" placeholder="Confirm your password" required />
           </div>
 
         </div>
 
-        <div class="button">
-          <input type="submit" value="Proceed to Payment" />
-         
+        <div className="button">
+          <input type="submit" value="Proceed to Payment" /> 
         </div>
 
       </form>
@@ -90,7 +96,7 @@ const checkout = () => {
   )
 }
 
-export default checkout;
+export default Checkout;
 
 
 const DIV=styled.div`

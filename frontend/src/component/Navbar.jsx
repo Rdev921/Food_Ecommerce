@@ -23,6 +23,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from '@chakra-ui/react';
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -31,6 +32,11 @@ import {
 } from '@chakra-ui/icons';
 import "../components/Middle.css"
 import { styled } from 'styled-components';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export const NAV_ITEMS = [
   {
@@ -88,8 +94,31 @@ export const NAV_ITEMS = [
 ];
 
 
+// onClick={() =>
+//   logout({ logoutParams: { returnTo: window.location.origin } })
+// }
+
+
+
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { user, isAuthenticated } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
+  const navigate = useNavigate()
+
+
+
+useEffect(()=> {
+  
+  if(isAuthenticated){
+    localStorage.setItem("usermail", user.email)
+  //  axios.post("http://localhost:4500/users", {...user}) 
+  }
+},[isAuthenticated])
+
+
 
 
 
@@ -99,6 +128,8 @@ export default function Navbar() {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+    
+
 
     return (
       <Stack direction={'row'} spacing={4} alignItems={"center"}>
@@ -202,6 +233,7 @@ export default function Navbar() {
   const MobileNavItem = ({ label, children, href }) => {
     const { isOpen, onToggle } = useDisclosure();
 
+
     return (
       <Stack spacing={4} onClick={children && onToggle}>
         <Flex
@@ -250,7 +282,7 @@ export default function Navbar() {
   };
 
   return (
-    <Box className='navBar'>
+    <Box className='navBar' >
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -279,6 +311,8 @@ export default function Navbar() {
             <Box className="container">
             <Text className='h1'
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            cursor={"pointer"}
+onClick={()=> navigate("/")}
           >
            FOODHUB
           </Text>
@@ -298,7 +332,7 @@ export default function Navbar() {
 {/* *********************** */}
 <Menu>
   <Flex alignItems={"center"} justifyContent={"center"} >
-    <Text padding={0} m={0}>UserName</Text>
+    <Text padding={0} m={0}>{isAuthenticated ? `${user.nickname}` : ""}</Text>
   </Flex>
                 <MenuButton
                   as={Button}
@@ -308,25 +342,32 @@ export default function Navbar() {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    src={isAuthenticated ? `${user.picture}` :'https://avatars.dicebear.com/api/male/username.svg'}
                   />
                 </MenuButton>
                
               </Menu>
 
 {/* *************************** */}
-
-          <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'lg'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}>
-            Sign In
-          
-          </Button>
-          <Button
+  
+          {
+           isAuthenticated ?  <Button
+           as={'a'}
+           display={{ base: 'none', md: 'inline-flex' }}
+           fontSize={'sm'}
+           fontWeight={500}
+           color={'white'}
+           bg={'#795744'}
+           href={'#'}
+           _hover={{
+             bg: '#806657',
+           }}
+           onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
+           >
+           Logout
+         </Button>: <Button
             as={'a'}
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
@@ -336,9 +377,13 @@ export default function Navbar() {
             href={'#'}
             _hover={{
               bg: '#806657',
-            }}>
-            Sign Up
+            }}
+            onClick={()=> loginWithRedirect()}
+            >
+            Login
           </Button>
+          }
+         
 
 
 

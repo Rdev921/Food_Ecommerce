@@ -14,9 +14,10 @@ import {
 } from '@chakra-ui/react'
 import './Middle.css'
 import { color } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 const Middle = () => {
   const [text, setText] = useState(true)
-
+const navigate = useNavigate()
  
 
 
@@ -119,7 +120,7 @@ const Middle = () => {
                 <SimpleGrid columns={1} spacing={1}>
                   <Text as='b' color={"#a18f7a"}>SHOP COOKWARE</Text>
                   <hr />
-                  <MenuItem fontSize='sm' className='item' bg='none'>All Kitchen</MenuItem>
+                  <MenuItem fontSize='sm' className='item' bg='none' onClick={()=> navigate("/products")}>All Kitchen</MenuItem>
                   <MenuItem fontSize='sm' className='item' bg='none'>Bakeware</MenuItem>
                   <MenuItem fontSize='sm' className='item' bg='none'>Coffe & Tea Accessories</MenuItem>
                   <MenuItem fontSize='sm' className='item' bg='none'>Cookbooks</MenuItem>
