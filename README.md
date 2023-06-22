@@ -13,7 +13,7 @@
 
 
 <br/>
-Link of our deployed project: 
+Link of our deployed project: https://fud-hub.netlify.app/
 <br/>
 
 ## Tech Stack and Features
@@ -52,7 +52,7 @@ Link of our deployed project:
 
 
 <br/>
-Link of our deployed project:  https://moonlit-spoon-3401-trilochanprasadbh.vercel.app/
+Link of our deployed project: https://fud-hub.netlify.app/
 <br/>
 
 ## Tech Stack and Features
